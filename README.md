@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `site link`
+## site link
 
-[Chek Out Here](https://play.google.com/store/apps/details?id=com.teamaspirant.mathguidebook)
+[Chek Out Here](https://fifa-world-cup-quiz.netlify.app/)
 :-------------------------:|
