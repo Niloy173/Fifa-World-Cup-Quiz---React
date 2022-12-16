@@ -199,7 +199,7 @@
   background-image: url("../src/assets/1288503.jpg");
   background-size: cover;
   color: #fff;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .center {
@@ -288,5 +288,20 @@ input:focus {
 
   .answer {
     width: 35%;
+  }
+
+  .center {
+    margin-top: 120px;
+  }
+  .center input {
+    margin-bottom: 20px;
+  }
+
+  .center .btn {
+    margin-bottom: 20px;
+  }
+
+  .startPage {
+    background-image: url("../src/assets/mobile_back.jpg");
   }
 }
