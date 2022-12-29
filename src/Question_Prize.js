@@ -68,7 +68,7 @@ const Question = [
       },
       {
           text: 'Möller Andreas & Eilts Dieter',
-          correct: true
+          correct: false
       }
     ]
   },
@@ -227,7 +227,7 @@ const Question = [
       },
       {
         text: 'Qatar',
-        correct: 'true'
+        correct: true
       },
       {
         text: 'Saudi Arabia',
