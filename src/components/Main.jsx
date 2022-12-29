@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { cloneDeep } from 'lodash';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Timer from './Timer';
 
-
 // import files
+import fifty_fifty from '../assets/fifty_fifty.png';
 import correct from '../assets/src_sounds_correct.mp3';
 import wrong from '../assets/src_sounds_wrong.mp3';
-
+import stopTimer from '../assets/stopTImer.jpg';
  
 const Main = ({data,setStopGame,setQuestionNumber,questionNumber}) => {
   
@@ -13,12 +14,42 @@ const Main = ({data,setStopGame,setQuestionNumber,questionNumber}) => {
   const [question, setQuestion] = useState(null);
   const [selectedanswer, setSelectedAnswer] = useState(null);
   const [classname, setClassname] = useState("answer");
+
+  // options
+  const [isRuning,setIsRuning] = useState(false); // for timer to stop
+  const alwaysRun = useRef(false); // state management for controlling one time stop timer option &
+                                  // continious stop watch runing again for next question
+  
+  const [active50_50, setActive50_50] = useState(false);
+  const option50_50 = useRef(true) // state management for option 50_50
   
   
 
   useEffect(() => {
-    setQuestion(data[questionNumber - 1]);
-  },[data,questionNumber])
+
+    if(active50_50 && option50_50.current){
+
+      const clone_question = cloneDeep(data[questionNumber - 1]);  
+      const updatedQuestion = {};
+      
+      updatedQuestion.id = clone_question.id;
+      updatedQuestion.question = clone_question.question;
+
+      const correct_answer = clone_question.answer.filter((v) => v.correct === true)
+      const false_answer = clone_question.answer.filter((v) => v.correct === false);
+
+      const incorrect_index = Math.floor(Math.random() * false_answer.length);
+
+      updatedQuestion.answer = [...correct_answer, false_answer[incorrect_index]]
+
+      setQuestion(updatedQuestion);
+      option50_50.current = !option50_50.current; // to stop 50_50 
+
+    }else{
+      setQuestion(data[questionNumber - 1]);
+    }
+  },[data,questionNumber,active50_50])
+
 
   const delayFunction = (duration, cb) => {
     setTimeout(() => {
@@ -81,8 +112,8 @@ const Main = ({data,setStopGame,setQuestionNumber,questionNumber}) => {
      
       <div className="top">
         {/* timer class */}
-        <div className="timer"><Timer setStopGame={setStopGame} questionNumber={questionNumber} /></div>
-      </div>
+      <div className="timer"><Timer alwaysRun={alwaysRun} isRuning={isRuning} setStopGame={setStopGame} questionNumber={questionNumber} /></div>
+    </div>
       <div className="bottom">
         {/* question & answers */}
         
@@ -106,6 +137,17 @@ const Main = ({data,setStopGame,setQuestionNumber,questionNumber}) => {
         
         </div>
 
+      </div>
+
+
+      <div className="options">
+      
+             <img src={fifty_fifty} className={active50_50 ? 'no-cursor': 'choice'}
+              onClick={() => setActive50_50(prev => !prev)} alt="50/50"  />
+              
+             <img src={stopTimer} onClick={() => setIsRuning(prev => !prev)}
+              className={isRuning? 'no-cursor': 'choice'} alt='timer_stop'/>
+      
       </div>
 
     </>

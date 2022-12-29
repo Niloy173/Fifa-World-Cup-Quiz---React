@@ -19,8 +19,9 @@ const Start = ({setName}) => {
 
       <summary>
       
-      There will be 15 question & 40 seconds to answer each one of them.
-      test your knowledge and have fun.
+      There will be <span>15 question & 40 seconds</span> to answer each one of them.
+      Also you can take <span>(50/50)</span> and <span>(STOP TIMER)</span> option for one time in case of help for any question.
+      Test your knowledge and have fun.
     
       </summary>
 

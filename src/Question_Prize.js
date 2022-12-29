@@ -45,7 +45,7 @@ const Question = [
 
       {
         text: 'Diego Maradona',
-        correct: true
+        correct: false
       }
     ]
   },
