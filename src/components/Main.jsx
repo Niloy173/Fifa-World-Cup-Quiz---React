@@ -120,7 +120,7 @@ const Main = ({data,setStopGame,setQuestionNumber,questionNumber}) => {
         <div className="fifa">
         
           <div className="question">{question?question.question: null}</div>
-          <div className="answers">
+          <div className={selectedanswer ? "answers no-drop" :"answers"}>
           
              {
                 question ? question.answer.map(ans => 

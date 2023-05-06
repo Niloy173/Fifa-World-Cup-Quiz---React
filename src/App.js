@@ -32,7 +32,7 @@ function App() {
        
         <div className="score">
 
-          <h1> {name} Earned : {earned} </h1>
+          <h1> {name} Earned : <span>{earned}</span> </h1>
           <button onClick={() => window.location.reload()} >Play Again</button>
 
       </div>

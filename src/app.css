@@ -56,6 +56,11 @@
   filter: blur(2px);
 }
 
+.no-drop {
+  pointer-events: none;
+  cursor: default;
+}
+
 .timer {
   width: 70px;
   height: 70px;
@@ -221,6 +226,18 @@
   text-align: center;
 }
 
+.score h1 {
+  width: auto;
+  height: max-content;
+  border: 1px solid springgreen;
+  background: darkslategray;
+  padding: 0.5rem 0.6rem;
+}
+
+.score h1 span {
+  color: orange;
+}
+
 .score button {
   border: 2px solid cyan;
   border-radius: 10px;
@@ -228,6 +245,7 @@
   background-color: #020230;
   color: #fff;
   cursor: pointer;
+  margin: 1rem 0;
 }
 
 .startPage {
@@ -259,8 +277,8 @@
   font-size: 20px;
   border-radius: 5px;
   text-align: center;
-  backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.2);
+  /* backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.2); */
   outline: 1px solid cyan;
   font-weight: bold;
   color: #fff;
