@@ -140,7 +140,7 @@ const Main = ({data,setStopGame,setQuestionNumber,questionNumber}) => {
       </div>
 
 
-      <div className="options">
+      <div className={selectedanswer ? "options no-drop" : "options"}>
       
              <img src={fifty_fifty} className={active50_50 ? 'no-cursor': 'choice'}
               onClick={() => setActive50_50(prev => !prev)} alt="50/50"  />
